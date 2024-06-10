@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+ mssql:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: MS_SQL_Server
+    restart: always
+    environment:
+      SA_PASSWORD: "Pass123!"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - ./backup:/backup
+    ports:
+      - 1433:1433
+    command: >
+      /bin/bash -c "/opt/mssql/bin/sqlservr --accept-eula & 
+      sleep 30 && 
+      (grep -q 'Starting database restore' <(tail -f /var/opt/mssql/log/errorlog) && 
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Pass123!' -d master -i /backup/restore.sql)"
+
+# Dar permisos 777 al directorio
+# sudo chmod -R 777 ./backup
+
+
+# DOWNLOAD:
+# -> https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak
+
+# run
+# docker exec -it MS_SQL_Server /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Pass123!' -d master -i /backup/database.sql
+
