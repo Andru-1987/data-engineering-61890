@@ -1,4 +1,4 @@
-\c nivelacion_database;
+\c nivelacion_database; -- USE  nivelacion_database;
 
 SELECT * 
 FROM agents
