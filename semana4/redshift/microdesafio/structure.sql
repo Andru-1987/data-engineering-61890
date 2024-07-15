@@ -1,9 +1,16 @@
+DROP DATABASE IF EXISTS etl_db;
+CREATE DATABASE etl_db;
+
 \c etl_db ;
+
+-- CREACION DE LOS ESQUEMAS PARA TRABAJAR DE  PUNTA A PUNTA
 DROP SCHEMA IF EXISTS desastres_final;
-CREATE SCHEMA desastres_final;
 DROP SCHEMA IF EXISTS desastres_bde;
+
+CREATE SCHEMA desastres_final;
 CREATE SCHEMA desastres_bde;
 
+-- CREACION DE LAS TABLAS DE STAGING
 CREATE TABLE
     desastres_final.clima (
         year INT NOT NULL PRIMARY KEY,
@@ -11,6 +18,28 @@ CREATE TABLE
         oxigeno NUMERIC NOT NULL
     );
 
+CREATE TABLE
+    desastres_final.desastres (
+        year INT NOT NULL PRIMARY key,
+        tsunamis INT NOT NULL,
+        olas_calor INT NOT NULL,
+        terremotos INT NOT NULL,
+        erupciones INT NOT NULL,
+        incendios INT NOT NULL
+    );
+
+CREATE TABLE
+    desastres_final.muertes (
+        year INT NOT NULL PRIMARY key,
+        r_menor15 INT NOT NULL,
+        r_15_a_30 INT NOT NULL,
+        r_30_a_45 INT NOT NULL,
+        r_45_a_60 INT NOT NULL,
+        r_m_a_60 INT NOT NULL
+    );
+
+
+-- INSERCION DE DATOS DE STAGING
 INSERT INTO
     desastres_final.clima
 VALUES
@@ -23,15 +52,6 @@ VALUES
     (2029, 23.6, 226.1),
     (2030, 23.8, 225.1);
 
-CREATE TABLE
-    desastres_final.desastres (
-        year INT NOT NULL PRIMARY key,
-        tsunamis INT NOT NULL,
-        olas_calor INT NOT NULL,
-        terremotos INT NOT NULL,
-        erupciones INT NOT NULL,
-        incendios INT NOT NULL
-    );
 
 INSERT INTO
     desastres_final.desastres
@@ -45,16 +65,6 @@ VALUES
     (2029, 2, 19, 5, 6, 49),
     (2030, 4, 20, 6, 7, 50);
 
-CREATE TABLE
-    desastres_final.muertes (
-        year INT NOT NULL PRIMARY key,
-        r_menor15 INT NOT NULL,
-        r_15_a_30 INT NOT NULL,
-        r_30_a_45 INT NOT NULL,
-        r_45_a_60 INT NOT NULL,
-        r_m_a_60 INT NOT NULL
-    );
-
 INSERT INTO
     desastres_final.muertes
 VALUES
@@ -67,7 +77,8 @@ VALUES
     (2029, 1285, 1376, 1465, 1432, 1236),
     (2030, 1145, 1456, 1345, 1654, 1877);
 
---< schema final>--
+
+-- TABLA OUTPUT DEL ETL
 CREATE TABLE
     desastres_bde.desastres_final (
         cuatrenio VARCHAR(20) NOT NULL PRIMARY KEY,

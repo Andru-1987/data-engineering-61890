@@ -9,6 +9,7 @@ services:
     shm_size: 128mb
     environment:
       POSTGRES_PASSWORD: ander123
+      POSTGRES_DB: etl_db
     ports:
      - 5432:5432
     healthcheck:
@@ -19,4 +20,4 @@ services:
 
     volumes:
       - ./clase:/clase
-      - ./sql-etl-process:/sql-etl-process
+      - ./microdesafio:/microdesafio

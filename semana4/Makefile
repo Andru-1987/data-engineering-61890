@@ -10,7 +10,7 @@ PG_PORT=5432
 PG_PWD=ander123
 
 DOCKER_PATH=./redshift/docker-compose.yml
-DATABASE_SCRIPT=/sql-etl-process/sql-etl-process.sql
+DATABASE_SCRIPT=/microdesafio/structure.sql
 
 .PHONY: all up psql
 

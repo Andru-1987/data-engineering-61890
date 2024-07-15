@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS etl_db;
+CREATE DATABASE etl_db;
+
 \c etl_db ;
 
 DROP PROCEDURE IF EXISTS pETL_desastres ;
@@ -74,8 +77,8 @@ BEGIN
         ,   avg_muerte_adultos
         ,   avg_muerte_ancianos
     FROM group_data
-        ON CONFLICT (cuatrenio) 
-        DO UPDATE SET
+        ON CONFLICT (cuatrenio)  -- CASO DE QUE EXISTA ALGUN ERROR
+        DO UPDATE SET -- CASO DE QU EXISTA ALGUN PK REPETIDO
             temp_avg = EXCLUDED.temp_avg
         ,   oxi_avg = EXCLUDED.oxi_avg
         ,   t_tsunamis = EXCLUDED.t_tsunamis
@@ -94,4 +97,22 @@ $$;
 CALL pETL_desastres();
 
 
-SELECT * FROM desastres_bde.desastres_final;
+-- VERIFICACION DE PROCESO REALIZADO
+SELECT 
+    cuatrenio
+,   avg_temperatura
+,   avg_oxigeno
+,   t_tsunamis
+,   t_olas_calor
+,   t_terremotos
+,   t_erupciones
+,   t_incendios
+,   avg_muerte_menores
+,   avg_muerte_adultos
+,   avg_muerte_ancianos
+FROM desastres_bde.desastres_final;
+
+
+
+
+
