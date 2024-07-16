@@ -1,5 +1,4 @@
 ### [START INTO SNOWFLAKE](https://medium.com/@cherifal2011/changing-your-star-schema-into-a-snowflake-schema-in-power-bi-f52b46abe63d)
-### [PRESENTACION](https://docs.google.com/presentation/d/e/2PACX-1vSDO49JrjZRCuJbrejyFsoa6w8ryTB-dSGAH-S8CsgB3Ma9dCUNW8vNmU_ZwXxlpg/pub?start=false&loop=false&delayms=3000)
 
 ## MICRO DESAFIO
 

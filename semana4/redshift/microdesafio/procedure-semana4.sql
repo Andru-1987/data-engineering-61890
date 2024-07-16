@@ -100,16 +100,16 @@ CALL pETL_desastres();
 -- VERIFICACION DE PROCESO REALIZADO
 SELECT 
     cuatrenio
-,   avg_temperatura
-,   avg_oxigeno
+,   temp_avg
+,   oxi_avg
 ,   t_tsunamis
-,   t_olas_calor
+,   t_olascalor
 ,   t_terremotos
 ,   t_erupciones
 ,   t_incendios
-,   avg_muerte_menores
-,   avg_muerte_adultos
-,   avg_muerte_ancianos
+,   m_jovenes_avg
+,   m_adutos_avg
+,   m_ancianos_avg
 FROM desastres_bde.desastres_final;
 
 
