@@ -1,0 +1,6 @@
+pandas
+SQLAlchemy
+sqlalchemy-redshift
+psycopg2-binary
+python-dotenv
+pendulum

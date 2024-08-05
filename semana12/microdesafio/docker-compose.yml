@@ -1,0 +1,89 @@
+  version: '3.8'
+
+  services:
+    zookeeper:
+      image: confluentinc/cp-zookeeper:latest
+      container_name: zookeeper
+      environment:
+        ZOOKEEPER_CLIENT_PORT: 2181
+        ZOOKEEPER_TICK_TIME: 2000
+      ports:
+        - 2181:2181
+
+    kafka-broker:
+      image: confluentinc/cp-kafka:latest
+      container_name: kafka-broker
+      depends_on:
+        - zookeeper
+      environment:
+        KAFKA_BROKER_ID: 1
+        KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker:9092,PLAINTEXT_INTERNAL://broker:29092
+        KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_INTERNAL://0.0.0.0:29092
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+        KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+        KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      ports:
+        - "9092:9092"
+
+      volumes:
+        - ./create-topics.sh:/docker-entrypoint-init.d/create-topics.sh
+        
+      entrypoint:
+        - "/bin/bash"
+        - "-c"
+        - |
+          # Start Kafka in the background
+          /etc/confluent/docker/run &
+          # Wait for Kafka to be ready
+          sleep 10
+          # Run custom initialization scripts
+          /docker-entrypoint-init.d/create-topics.sh
+          # Keep Kafka running in the foreground
+          wait
+
+    sqlite:
+      image: keinos/sqlite3
+      container_name: sqlite
+      command: ["sh", "-c", "while true; do sleep 1000; done"]
+      volumes:
+        - ./database:/database
+      ports:
+        - 8000:8000 
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+    producer:
+      build:
+        context: ./producer
+      container_name: producer
+      depends_on:
+        - kafka-broker
+        - sqlite
+      volumes:
+        - ./producer:/app
+        - ./database:/database
+      env_file:
+        - .env
+      restart: always
+      command: python /app/producer.py
+
+    consumer:
+      build:
+        context: ./consumer
+      container_name: consumer
+      depends_on:
+        - kafka-broker
+        - sqlite
+      volumes:
+        - ./consumer:/app
+        - ./database:/database
+      restart: always
+      env_file:
+        - .env
+      command: python /app/consumer.py
