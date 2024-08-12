@@ -24,7 +24,8 @@ VALUES
 
 -- GENERACION DE UN USUARIO CON SU RESPECTIVO PASSWORD CREATE USER
 
-CREATE USER ander_de PASSWORD 'Pass1234';
+CREATE USER andru_data_scientist PASSWORD 'Pass1234';
+DROP USER  andru_data_scientist;
 
 -- LISTAR USUARIOS CREADOS
 SELECT
@@ -39,40 +40,40 @@ CROSS JOIN
 WHERE
     
     s.schemaname = 'andru_ocatorres_coderhouse'
-    AND u.usename LIKE '%_de';
+    AND u.usename LIKE 'data_science';
    
    
  -- GENERACION DE GRUPOS CREAR GRUPO 
    
-CREATE GROUP los_power_trio WITH USER andru_data_scientist;
+CREATE GROUP data_science WITH USER andru_data_scientist;
 
 -- VERIFICACION DE LA CREACION DE LOS GRUPOS EXISTENTES 
-select *
-from pg_user , pg_group
-where pg_user.usesysid = ANY(pg_group.grolist) and 
-      pg_group.groname='los_power_trio';
+SELECT *
+FROM  pg_user , pg_group
+WHERE pg_user.usesysid = ANY(pg_group.grolist) AND
+      pg_group.groname='data_science';
      
 
 -- AGREGADO DE USUARIOS AL GRUPO
 ALTER GROUP 
-	los_power_trio 
+	data_science 
+
 DROP USER andru_data_scientist ; 
 
 ALTER GROUP 
-	los_power_trio 
-ADD USER ander_de ;
-
+ 
 
 
 -- SOBRE COLUMNAS
-GRANT SELECT(name, dob, zip) 
+GRANT SELECT(name, zip) 
 	ON andru_ocatorres_coderhouse.tabla_test_driven 
-	TO GROUP los_power_trio;
+	TO GROUP data_science;
 
    
 -- GARANTIZAMOS LOS PERMISOS AL GRUPO
 GRANT ALL ON SCHEMA andru_ocatorres_coderhouse 
-	TO GROUP los_power_trio;
+	TO GROUP data_science;
 
 
 
+REVOKE ALL PRIVILEGES ON SCHEMA andru_ocatorres_coderhouse FROM andru_data_scientist;
