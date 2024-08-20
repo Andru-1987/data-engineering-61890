@@ -1,0 +1,6 @@
+version: '3.1'
+
+services:
+        script:
+                build: .
+                container_name: python-dev
