@@ -14,7 +14,7 @@ with DAG(
     
     init_project = BashOperator(
         task_id="init_project_data_creation",
-        bash_command="echo start project")
+        bash_command="echo 'start project'")
 
     @task()
     def airflow():
