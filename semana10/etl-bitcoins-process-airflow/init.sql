@@ -1,7 +1,9 @@
-DROP DATABASE IF NOT EXISTS etl_bitcoins;
+-- DROP DATABASE IF EXISTS etl_bitcoins;
 
-CREATE DATABASE etl_bitcoins;
-\c etl_bitcoins;
+-- CREATE DATABASE etl_bitcoins;
+
+-- -- Connect to the database manually if needed in a script that is not run at init
+-- --\c etl_bitcoins;
 
 CREATE SCHEMA etl_bitcoins_schema;
 

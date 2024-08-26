@@ -1,3 +1,5 @@
+![alt text](airflow-components.png)
+
 **Catchup and Backfilling in Apache Airflow: An Example**
 
 In Apache Airflow, the concepts of **catchup** and **backfilling** are important when dealing with schedules and historical data. Here’s an example to illustrate these concepts.

@@ -18,11 +18,11 @@ def get_credentials() -> dict:
     data_base = os.getenv("REDSHIFT_DB")
 
     return {
+        "dbname": data_base,
+        "user": user,
+        "password": pwd,
         "host": url,
-        "username": user,
-        "database": data_base,
         "port": port,
-        "pwd": pwd,
     }
 
 

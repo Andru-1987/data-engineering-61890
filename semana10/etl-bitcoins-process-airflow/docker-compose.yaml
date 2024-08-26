@@ -33,6 +33,9 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ./raw_data:/opt/airflow/raw_data
+    - ./processed_data:/opt/airflow/processed_data
+  env_file: .env
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -59,16 +62,18 @@ services:
 
   storage_pg:
     image: postgres:13
+    container_name: storage_pg
+    hostname: database
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: etl_bitcoins
     volumes:
-      - ./init.sql:/docker-entrypoint-initd.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 5433:5432
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "airflow"]
+      test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
       retries: 5
       start_period: 5s

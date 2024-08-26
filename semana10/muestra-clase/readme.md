@@ -1,8 +1,5 @@
 # AIRFLOW AND DAGS
 
-[PRESENTACION DE CLASE](https://docs.google.com/presentation/d/e/2PACX-1vTBrAcC_7Up5Cqfex1K2mrvn1hBOncDRXUD1NW1k60JWv1xPNAxcn6ImFQeV_JxTA/pub?start=false&loop=false&delayms=3000)
-
-
 ### Airflow
 
 **Apache Airflow** es una plataforma de código abierto para crear, programar y monitorear flujos de trabajo programados, conocida como "workflow automation". Proporciona una forma de definir estos flujos de trabajo como código, utilizando Python. Airflow es ampliamente utilizado en el contexto de **ETL (Extract, Transform, Load)**, procesamiento de datos, y otras tareas automatizadas que requieren una gestión eficiente de dependencias y programación.

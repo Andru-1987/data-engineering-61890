@@ -6,6 +6,7 @@ from datetime import datetime
 def transformar_data(exec_date, path):
     print(f"Transformando la data para la fecha: {exec_date}")
 
+    date = datetime.strptime(exec_date, "%Y-%m-%d %H")
     json_path = (
         f"{path}/raw_data/data_{date.year}-{date.month}-{date.day}-{date.hour}.json"
     )
@@ -13,7 +14,6 @@ def transformar_data(exec_date, path):
         f"{path}/raw_data/data_{date.year}-{date.month}-{date.day}-{date.hour}.csv"
     )
 
-    date = datetime.strptime(exec_date, "%Y-%m-%d %H")
     with open(json_path, "r") as json_file:
         loaded_data = json.load(json_file)
     # Extraer la data en tabla

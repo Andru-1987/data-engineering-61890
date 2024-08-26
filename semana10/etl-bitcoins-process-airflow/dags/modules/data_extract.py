@@ -5,6 +5,7 @@ from datetime import datetime
 
 # funcion de extraccion de datos
 def extraer_data(exec_date, path):
+    date = datetime.strptime(exec_date, "%Y-%m-%d %H")
     json_path = (
         f"{path}/raw_data/data_{date.year}-{date.month}-{date.day}-{date.hour}.json"
     )
@@ -13,7 +14,6 @@ def extraer_data(exec_date, path):
 
     try:
         print(f"Adquiriendo data para la fecha: {exec_date}")
-        date = datetime.strptime(exec_date, "%Y-%m-%d %H")
         response = requests.get(url, headers=headers)
         if response:
             print("Success!")
