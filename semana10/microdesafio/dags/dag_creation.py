@@ -17,7 +17,8 @@ with DAG(
     dag_id=DAG_ID,
     description= 'Dag conexion a postgres',
     start_date=datetime(2024,6,26),
-    schedule_interval='@once'
+    schedule_interval='@once',
+    catchup=False
     ) as dag:
 
 

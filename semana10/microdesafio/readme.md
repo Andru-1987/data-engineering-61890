@@ -4,9 +4,9 @@
 
 curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.9.2/docker-compose.yaml'
 
-mkdir -p ./etl-bitcoins-process-airflow/{logs,dags,config,plugins,raw_data,processed_data}
+mkdir -p ./microdesafio/{logs,dags,config,plugins}
 
-echo -e "AIRFLOW_UID=$(id -u)" > ./etl-bitcoins-process-airflow/.env
+echo -e "AIRFLOW_UID=$(id -u)" > ./.env
 
 
 ```

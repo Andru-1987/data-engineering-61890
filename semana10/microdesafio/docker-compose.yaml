@@ -33,9 +33,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-    - ./raw_data:/opt/airflow/raw_data
-    - ./processed_data:/opt/airflow/processed_data
-  env_file: .env
+
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -66,7 +64,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: etl_bitcoins
+      POSTGRES_DB: FIN_MUNDO
     volumes:
       - ./init.sql:/docker-entrypoint-initd.d/init.sql
     ports:

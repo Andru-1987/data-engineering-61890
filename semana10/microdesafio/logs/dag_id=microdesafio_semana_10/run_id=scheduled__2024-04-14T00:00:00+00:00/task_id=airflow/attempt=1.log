@@ -1,0 +1,21 @@
+[2024-08-27T01:22:25.868+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-27T01:22:26.320+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: microdesafio_semana_10.airflow scheduled__2024-04-14T00:00:00+00:00 [queued]>
+[2024-08-27T01:22:26.418+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: microdesafio_semana_10.airflow scheduled__2024-04-14T00:00:00+00:00 [queued]>
+[2024-08-27T01:22:26.437+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-27T01:22:26.964+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): airflow> on 2024-04-14 00:00:00+00:00
+[2024-08-27T01:22:27.181+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=870) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-27T01:22:27.384+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'microdesafio_semana_10', '***', 'scheduled__2024-04-14T00:00:00+00:00', '--job-id', '325', '--raw', '--subdir', 'DAGS_FOLDER/dag_test.py', '--cfg-path', '/tmp/tmp1biq9t2f']
+[2024-08-27T01:22:27.412+0000] {standard_task_runner.py:63} INFO - Started process 896 to run task
+[2024-08-27T01:22:27.385+0000] {standard_task_runner.py:91} INFO - Job 325: Subtask ***
+[2024-08-27T01:22:28.128+0000] {task_command.py:426} INFO - Running <TaskInstance: microdesafio_semana_10.airflow scheduled__2024-04-14T00:00:00+00:00 [running]> on host 6a900cf20cab
+[2024-08-27T01:22:29.565+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='microdesafio_semana_10' AIRFLOW_CTX_TASK_ID='***' AIRFLOW_CTX_EXECUTION_DATE='2024-04-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-14T00:00:00+00:00'
+[2024-08-27T01:22:29.570+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-27T01:22:29.575+0000] {logging_mixin.py:188} INFO - ***
+[2024-08-27T01:22:29.592+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-27T01:22:29.603+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-27T01:22:29.690+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=microdesafio_semana_10, task_id=***, run_id=scheduled__2024-04-14T00:00:00+00:00, execution_date=20240414T000000, start_date=20240827T012226, end_date=20240827T012229
+[2024-08-27T01:22:29.843+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-08-27T01:22:30.032+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-27T01:22:30.049+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
