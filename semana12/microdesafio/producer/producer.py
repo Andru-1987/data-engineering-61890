@@ -3,13 +3,26 @@ import time
 from kafka import KafkaProducer
 import json
 import os
+import logging
+
+# Configuración del logger
+logging.basicConfig(
+    level=logging.INFO,
+    format='PRODUCER: %(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),  # Muestra los logs en la consola
+        logging.FileHandler('logger.log')  # Guarda los logs en un archivo
+    ]
+)
+
+logger = logging.getLogger('KafkaProducer')
 
 table_name_producer = os.getenv("DATABASE_TABLE_PRODUCER")
-topic=os.getenv("TOPIC")
+topic = os.getenv("TOPIC")
 
 def running_process():
-    print(f"PRODUCER IS ACTIVE RUNNING AT TOPIC --> {topic}")
-    
+    logger.info(f"PRODUCER IS ACTIVE RUNNING AT TOPIC --> {topic}")
+
 def get_db_connection():
     conn = sqlite3.connect('/database/db.sqlite3')
     conn.row_factory = sqlite3.Row
@@ -24,12 +37,13 @@ def create_table_if_not_exists():
             country TEXT,
             country_code TEXT,
             mensaje TEXT,
-            fecha   DATE,
+            fecha DATE,
             timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
     conn.commit()
     conn.close()
+    logger.info(f"Table {table_name_producer} created or already exists.")
 
 def get_last_row_id(cursor):
     cursor.execute(f"SELECT seq FROM sqlite_sequence WHERE name='{table_name_producer}'")
@@ -37,10 +51,14 @@ def get_last_row_id(cursor):
     return row[0] if row else None
 
 def produce_messages():
-
-    producer = KafkaProducer(
-        bootstrap_servers='kafka-broker:9092',
-        value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+    try:
+        producer = KafkaProducer(
+            bootstrap_servers='kafka-broker:9092',
+            value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+        logger.info("Kafka Producer connected successfully.")
+    except Exception as e:
+        logger.error(f"Failed to connect to Kafka broker: {e}")
+        return
     
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -51,20 +69,23 @@ def produce_messages():
     running_process()
 
     while True:
-        if last_timestamp is None:
-            cursor.execute(f'SELECT timestamp FROM {table_name_producer} ORDER BY timestamp DESC LIMIT 1')
-            row = cursor.fetchone()
-            last_timestamp = row[0] if row else None
+        try:
+            if last_timestamp is None:
+                cursor.execute(f'SELECT timestamp FROM {table_name_producer} ORDER BY timestamp DESC LIMIT 1')
+                row = cursor.fetchone()
+                last_timestamp = row[0] if row else None
 
-        cursor.execute(f'SELECT * FROM {table_name_producer} WHERE timestamp > ?', (last_timestamp,))
-        rows = cursor.fetchall()
-        for row in rows:
-            producer.send(topic, dict(row))
-            producer.flush()
-            last_timestamp = row['timestamp']  # Update the last_timestamp to the latest row's timestamp
+            cursor.execute(f'SELECT * FROM {table_name_producer} WHERE timestamp > ?', (last_timestamp,))
+            rows = cursor.fetchall()
+            for row in rows:
+                producer.send(topic, dict(row))
+                producer.flush()
+                logger.info(f"Sent message: {dict(row)}")
+                last_timestamp = row['timestamp']  # Update the last_timestamp to the latest row's timestamp
 
-        time.sleep(1)
-
+            time.sleep(1)
+        except Exception as e:
+            logger.error(f"Error in producing messages: {e}")
 
 if __name__ == "__main__":
     produce_messages()
