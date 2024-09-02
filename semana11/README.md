@@ -20,3 +20,6 @@ Bibliografia:
 [AIRFLOW VARIABLES](https://www.astronomer.io/docs/learn/airflow-variables?tab=airflow#create-an-airflow-variable)
 
 
+---
+# _CREAR CON GMAIL_
+* NOTION -> STEPS USANDO UN VIDEO

@@ -13,7 +13,7 @@ from modules import fail_task, generate_end_of_world_estimates_context,get_email
 default_args = {
     'owner': 'ander_o',
     'start_date': days_ago(1),
-    'email': ['anderson.coder.space@gmail.com','pabloing1993@gmail.com'],
+    'email': ['anderson.coder.space@gmail.com'],
     'email_on_retry':True,
     'email_on_failure': True,
     'retries':1

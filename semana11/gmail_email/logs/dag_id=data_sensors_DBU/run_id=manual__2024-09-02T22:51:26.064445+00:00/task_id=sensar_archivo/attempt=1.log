@@ -1,0 +1,28 @@
+[2024-09-02T22:51:26.805+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-02T22:51:26.824+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_sensors_DBU.sensar_archivo manual__2024-09-02T22:51:26.064445+00:00 [queued]>
+[2024-09-02T22:51:26.831+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_sensors_DBU.sensar_archivo manual__2024-09-02T22:51:26.064445+00:00 [queued]>
+[2024-09-02T22:51:26.831+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 11
+[2024-09-02T22:51:26.849+0000] {taskinstance.py:2330} INFO - Executing <Task(FileSensor): sensar_archivo> on 2024-09-02 22:51:26.064445+00:00
+[2024-09-02T22:51:26.856+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=93) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-02T22:51:26.857+0000] {standard_task_runner.py:63} INFO - Started process 94 to run task
+[2024-09-02T22:51:26.857+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'data_sensors_DBU', 'sensar_archivo', 'manual__2024-09-02T22:51:26.064445+00:00', '--job-id', '189', '--raw', '--subdir', 'DAGS_FOLDER/dag_sensor_csv.py', '--cfg-path', '/tmp/tmpuk2rzprd']
+[2024-09-02T22:51:26.858+0000] {standard_task_runner.py:91} INFO - Job 189: Subtask sensar_archivo
+[2024-09-02T22:51:26.907+0000] {task_command.py:426} INFO - Running <TaskInstance: data_sensors_DBU.sensar_archivo manual__2024-09-02T22:51:26.064445+00:00 [running]> on host 624ae8e8e71b
+[2024-09-02T22:51:27.005+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='anderson.coder.space@gmail.com' AIRFLOW_CTX_DAG_OWNER='ander_o' AIRFLOW_CTX_DAG_ID='data_sensors_DBU' AIRFLOW_CTX_TASK_ID='sensar_archivo' AIRFLOW_CTX_EXECUTION_DATE='2024-09-02T22:51:26.064445+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-02T22:51:26.064445+00:00'
+[2024-09-02T22:51:27.006+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-02T22:51:27.029+0000] {baseoperator.py:400} WARNING - FileSensor.execute cannot be called outside TaskInstance!
+[2024-09-02T22:51:27.040+0000] {base.py:84} INFO - Using connection ID 'csv_files' for task execution.
+[2024-09-02T22:51:27.041+0000] {filesystem.py:85} INFO - Poking for file /opt/***/data/data-*.csv
+[2024-09-02T22:51:37.042+0000] {filesystem.py:85} INFO - Poking for file /opt/***/data/data-*.csv
+[2024-09-02T22:51:47.043+0000] {filesystem.py:85} INFO - Poking for file /opt/***/data/data-*.csv
+[2024-09-02T22:51:47.044+0000] {filesystem.py:89} INFO - Found File /opt/***/data/data-dos.csv last modified: 20240902225146
+[2024-09-02T22:51:47.045+0000] {base.py:294} INFO - Success criteria met. Exiting.
+[2024-09-02T22:51:47.045+0000] {filesystem.py:85} INFO - Poking for file /opt/***/data/data-*.csv
+[2024-09-02T22:51:47.046+0000] {filesystem.py:89} INFO - Found File /opt/***/data/data-dos.csv last modified: 20240902225146
+[2024-09-02T22:51:47.046+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-02T22:51:47.058+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=data_sensors_DBU, task_id=sensar_archivo, run_id=manual__2024-09-02T22:51:26.064445+00:00, execution_date=20240902T225126, start_date=20240902T225126, end_date=20240902T225147
+[2024-09-02T22:51:47.083+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-02T22:51:47.108+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T22:51:47.119+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

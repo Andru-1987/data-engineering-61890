@@ -1,0 +1,143 @@
+[2024-09-02T22:35:41.525+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-02T22:35:41.640+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_sensors_DBU.mail_sender manual__2024-09-02T22:33:43.327276+00:00 [queued]>
+[2024-09-02T22:35:41.691+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_sensors_DBU.mail_sender manual__2024-09-02T22:33:43.327276+00:00 [queued]>
+[2024-09-02T22:35:41.692+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 11
+[2024-09-02T22:35:41.738+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): mail_sender> on 2024-09-02 22:33:43.327276+00:00
+[2024-09-02T22:35:41.751+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=126) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-02T22:35:41.755+0000] {standard_task_runner.py:63} INFO - Started process 135 to run task
+[2024-09-02T22:35:41.759+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'data_sensors_DBU', 'mail_sender', 'manual__2024-09-02T22:33:43.327276+00:00', '--job-id', '157', '--raw', '--subdir', 'DAGS_FOLDER/dag_sensor_csv.py', '--cfg-path', '/tmp/tmpgdv58qiv']
+[2024-09-02T22:35:41.760+0000] {standard_task_runner.py:91} INFO - Job 157: Subtask mail_sender
+[2024-09-02T22:35:41.873+0000] {task_command.py:426} INFO - Running <TaskInstance: data_sensors_DBU.mail_sender manual__2024-09-02T22:33:43.327276+00:00 [running]> on host 556e28ab3d3f
+[2024-09-02T22:35:42.179+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='anderson.coder.space@gmail.com' AIRFLOW_CTX_DAG_OWNER='ander_o' AIRFLOW_CTX_DAG_ID='data_sensors_DBU' AIRFLOW_CTX_TASK_ID='mail_sender' AIRFLOW_CTX_EXECUTION_DATE='2024-09-02T22:33:43.327276+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-02T22:33:43.327276+00:00'
+[2024-09-02T22:35:42.179+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-02T22:35:42.255+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-02T22:35:42.256+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/mailer/send_mail.py", line 20, in send_email
+    msg.attach(MIMEText(generate_end_of_world_estimates(), 'plain'))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'generate_end_of_world_estimates' is not defined
+[2024-09-02T22:35:42.268+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=data_sensors_DBU, task_id=mail_sender, run_id=manual__2024-09-02T22:33:43.327276+00:00, execution_date=20240902T223343, start_date=20240902T223541, end_date=20240902T223542
+[2024-09-02T22:35:42.291+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/email.py:154: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2024-09-02T22:35:42.293+0000] {configuration.py:1050} WARNING - section/key [smtp/smtp_user] not found in config
+[2024-09-02T22:35:42.294+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2024-09-02T22:35:42.302+0000] {configuration.py:1050} WARNING - section/key [smtp/smtp_user] not found in config
+[2024-09-02T22:35:42.305+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2024-09-02T22:35:42.307+0000] {taskinstance.py:879} ERROR - Failed to send email to: ['anderson.coder.space@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2479, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2676, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2701, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/mailer/send_mail.py", line 20, in send_email
+    msg.attach(MIMEText(generate_end_of_world_estimates(), 'plain'))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'generate_end_of_world_estimates' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1063, in _email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 273, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 853, in create_connection
+    raise exceptions[0]
+  File "/usr/local/lib/python3.12/socket.py", line 838, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 877, in _handle_failure
+    task_instance.email_alert(error, failure_context["task"])
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3163, in email_alert
+    _email_alert(task_instance=self, exception=exception, task=task)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1065, in _email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 273, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 853, in create_connection
+    raise exceptions[0]
+  File "/usr/local/lib/python3.12/socket.py", line 838, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+[2024-09-02T22:35:42.334+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 157 for task mail_sender (name 'generate_end_of_world_estimates' is not defined; 135)
+[2024-09-02T22:35:42.352+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-09-02T22:35:42.378+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T22:35:42.389+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

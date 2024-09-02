@@ -1,0 +1,21 @@
+[2024-09-02T22:34:38.991+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-09-02T22:34:39.025+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_sensors_DBU.print_message scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2024-09-02T22:34:39.034+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_sensors_DBU.print_message scheduled__2024-09-01T00:00:00+00:00 [queued]>
+[2024-09-02T22:34:39.034+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 11
+[2024-09-02T22:34:39.059+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): print_message> on 2024-09-01 00:00:00+00:00
+[2024-09-02T22:34:39.069+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=110) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-02T22:34:39.071+0000] {standard_task_runner.py:63} INFO - Started process 111 to run task
+[2024-09-02T22:34:39.077+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'data_sensors_DBU', 'print_message', 'scheduled__2024-09-01T00:00:00+00:00', '--job-id', '153', '--raw', '--subdir', 'DAGS_FOLDER/dag_sensor_csv.py', '--cfg-path', '/tmp/tmpi5arxaed']
+[2024-09-02T22:34:39.078+0000] {standard_task_runner.py:91} INFO - Job 153: Subtask print_message
+[2024-09-02T22:34:39.138+0000] {task_command.py:426} INFO - Running <TaskInstance: data_sensors_DBU.print_message scheduled__2024-09-01T00:00:00+00:00 [running]> on host 556e28ab3d3f
+[2024-09-02T22:34:39.261+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='anderson.coder.space@gmail.com' AIRFLOW_CTX_DAG_OWNER='ander_o' AIRFLOW_CTX_DAG_ID='data_sensors_DBU' AIRFLOW_CTX_TASK_ID='print_message' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T00:00:00+00:00'
+[2024-09-02T22:34:39.264+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-09-02T22:34:39.299+0000] {logging_mixin.py:188} INFO - Llegó el archivo: None
+[2024-09-02T22:34:39.299+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-09-02T22:34:39.300+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-09-02T22:34:39.324+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=data_sensors_DBU, task_id=print_message, run_id=scheduled__2024-09-01T00:00:00+00:00, execution_date=20240901T000000, start_date=20240902T223439, end_date=20240902T223439
+[2024-09-02T22:34:39.365+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-09-02T22:34:39.382+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T22:34:39.391+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

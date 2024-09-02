@@ -1,0 +1,109 @@
+[2024-09-02T20:26:16.367+0000] {processor.py:161} INFO - Started process (PID=58) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:26:16.457+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:26:16.459+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:16.459+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:26:16.880+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:26:17.977+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:17.976+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:send_end_of_world_estimates
+[2024-09-02T20:26:18.028+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:18.028+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:send_end_of_world_estimates
+[2024-09-02T20:26:18.046+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:18.046+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:send_end_of_world_estimates
+[2024-09-02T20:26:18.047+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:18.047+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:26:18.083+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:18.083+0000] {dag.py:3118} INFO - Creating ORM DAG for send_end_of_world_estimates
+[2024-09-02T20:26:18.130+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:18.129+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:26:18.240+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 1.919 seconds
+[2024-09-02T20:26:48.514+0000] {processor.py:161} INFO - Started process (PID=65) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:26:48.516+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:26:48.518+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:48.517+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:26:48.570+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:26:48.602+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:48.601+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:26:48.628+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:26:48.628+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:26:48.655+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.147 seconds
+[2024-09-02T20:27:18.760+0000] {processor.py:161} INFO - Started process (PID=74) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:27:18.761+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:27:18.763+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:27:18.763+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:27:18.786+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:27:18.822+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:27:18.822+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:27:18.856+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:27:18.856+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:27:18.902+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.148 seconds
+[2024-09-02T20:27:49.038+0000] {processor.py:161} INFO - Started process (PID=82) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:27:49.039+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:27:49.041+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:27:49.040+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:27:49.063+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:27:49.099+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:27:49.099+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:27:49.125+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:27:49.124+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:27:49.147+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.114 seconds
+[2024-09-02T20:28:19.251+0000] {processor.py:161} INFO - Started process (PID=91) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:28:19.252+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:28:19.254+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:28:19.254+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:28:19.277+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:28:19.317+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:28:19.316+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:28:19.343+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:28:19.343+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:28:19.365+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.120 seconds
+[2024-09-02T20:28:49.494+0000] {processor.py:161} INFO - Started process (PID=100) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:28:49.495+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:28:49.498+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:28:49.497+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:28:49.522+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:28:49.574+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:28:49.573+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:28:49.597+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:28:49.597+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:28:49.619+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.131 seconds
+[2024-09-02T20:29:19.730+0000] {processor.py:161} INFO - Started process (PID=108) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:29:19.733+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:29:19.736+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:29:19.735+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:29:19.759+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:29:19.791+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:29:19.791+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:29:19.832+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:29:19.832+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:29:19.855+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.131 seconds
+[2024-09-02T20:29:50.003+0000] {processor.py:161} INFO - Started process (PID=116) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:29:50.004+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:29:50.008+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:29:50.008+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:29:50.057+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:29:50.148+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:29:50.148+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:29:50.198+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:29:50.197+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:29:50.245+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.259 seconds
+[2024-09-02T20:30:20.371+0000] {processor.py:161} INFO - Started process (PID=124) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:30:20.371+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:30:20.373+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:30:20.373+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:30:20.395+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:30:20.430+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:30:20.430+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:30:20.457+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:30:20.457+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:30:20.480+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.116 seconds
+[2024-09-02T20:30:50.619+0000] {processor.py:161} INFO - Started process (PID=133) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:30:50.624+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:30:50.626+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:30:50.626+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:30:50.667+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:30:50.784+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:30:50.784+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:30:50.817+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:30:50.815+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:30:50.854+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.252 seconds
+[2024-09-02T20:31:20.961+0000] {processor.py:161} INFO - Started process (PID=141) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:31:20.963+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:31:20.966+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:31:20.965+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:31:20.990+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:31:21.022+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:31:21.022+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:31:21.048+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:31:21.048+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:31:21.078+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.122 seconds
+[2024-09-02T20:31:51.190+0000] {processor.py:161} INFO - Started process (PID=149) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:31:51.191+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:31:51.194+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:31:51.194+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:31:51.218+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:31:51.250+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:31:51.250+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:31:51.275+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:31:51.275+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:31:51.299+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.115 seconds
+[2024-09-02T20:32:21.414+0000] {processor.py:161} INFO - Started process (PID=157) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:32:21.415+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:32:21.421+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:32:21.420+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:32:21.452+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:32:21.515+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:32:21.514+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:32:21.601+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:32:21.600+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:32:21.700+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.293 seconds
+[2024-09-02T20:32:51.780+0000] {processor.py:161} INFO - Started process (PID=166) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:32:51.781+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:32:51.783+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:32:51.782+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:32:51.805+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:32:51.838+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:32:51.838+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:32:51.873+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:32:51.873+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:32:51.895+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.122 seconds
+[2024-09-02T20:33:22.034+0000] {processor.py:161} INFO - Started process (PID=174) to work on /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:33:22.034+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/main_to_fail.py for tasks to queue
+[2024-09-02T20:33:22.036+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:33:22.035+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:33:22.058+0000] {processor.py:840} INFO - DAG(s) 'send_end_of_world_estimates' retrieved from /opt/airflow/dags/main_to_fail.py
+[2024-09-02T20:33:22.090+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:33:22.090+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-09-02T20:33:22.116+0000] {logging_mixin.py:188} INFO - [2024-09-02T20:33:22.116+0000] {dag.py:3954} INFO - Setting next_dagrun for send_end_of_world_estimates to 2024-09-01 00:00:00+00:00, run_after=2024-09-02 00:00:00+00:00
+[2024-09-02T20:33:22.142+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/main_to_fail.py took 0.126 seconds
