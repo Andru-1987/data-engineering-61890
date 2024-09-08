@@ -8,6 +8,26 @@ x-airflow-common:
   # build: .
   environment:
     &airflow-common-env
+    
+    # USO DE VARIABLES
+    AIRFLOW_VAR_SUBJECT_MAIL: 'Redshift API Bitcoin ETL'
+    AIRFLOW_VAR_EMAIL: ${EMAIL}
+    AIRFLOW_VAR_EMAIL_PASSWORD: "${EMAIL_PASSWORD}"
+    AIRFLOW_VAR_TO_ADDRESS: '${EMAIL}'    
+
+
+    # USO DE VARIALES PARA BACKEND
+    AIRFLOW__EMAIL__EMAIL_BACKEND: airflow.utils.email.send_email_smtp
+
+    AIRFLOW__SMTP__SMTP_HOST: ${SMTP_HOST}
+    AIRFLOW__SMTP__SMTP_STARTTLS: ${SMTP_STARTTLS}
+    AIRFLOW__SMTP__SMTP_SSL: ${SMTP_SSL}
+    AIRFLOW__SMTP__SMTP_USER: ${SMTP_USER}
+    AIRFLOW__SMTP__SMTP_PASSWORD: ${SMTP_PASSWORD}
+    AIRFLOW__SMTP__SMTP_PORT: ${SMTP_PORT}
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: ${SMTP_MAIL_FROM}
+
+    # COMMON AIRFLOW AIRFLOW DOCKER COMPOSE 
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
@@ -60,24 +80,24 @@ services:
       start_period: 5s
     restart: always
 
-  storage_pg:
-    image: postgres:13
-    container_name: storage_pg
-    hostname: database
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: etl_bitcoins
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - 5433:5432
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres"]
-      interval: 10s
-      retries: 5
-      start_period: 5s
-    restart: always
+  # storage_pg:
+  #   image: postgres:13
+  #   container_name: storage_pg
+  #   hostname: database
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_DB: etl_bitcoins
+  #   volumes:
+  #     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   ports:
+  #     - 5433:5432
+  #   healthcheck:
+  #     test: ["CMD", "pg_isready", "-U", "postgres"]
+  #     interval: 10s
+  #     retries: 5
+  #     start_period: 5s
+  #   restart: always
 
   redis:
     # Redis is limited to 7.2-bookworm due to licencing change

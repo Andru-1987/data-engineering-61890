@@ -30,10 +30,9 @@ def get_defaultairflow_args():
     return {
         "owner": "anderson_oca",
         "depends_on_past": False,
-        "start_date": datetime(2023, 1, 1),
-        "email_on_failure": False,
+        "start_date": datetime.now(),
+        "email_on_failure": True,
         "email_on_retry": False,
         "retries": 1,
-        "catch"
-        "retry_delay": timedelta(minutes=5),
+        "retry_delay": timedelta(seconds=10),
     }

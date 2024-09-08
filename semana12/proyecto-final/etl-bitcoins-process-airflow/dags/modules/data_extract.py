@@ -23,6 +23,7 @@ def extraer_data(exec_date, path):
                 "w",
             ) as json_file:
                 json.dump(data, json_file)
+            print("JSON File stored")
         else:
             print("An error has occurred.")
     except ValueError as e:
