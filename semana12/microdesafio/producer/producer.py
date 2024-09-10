@@ -68,6 +68,21 @@ def produce_messages():
 
     running_process()
 
+
+    # **Step 1: Send all rows already in the table**
+    try:
+        cursor.execute(f'SELECT * FROM {table_name_producer} ORDER BY timestamp ASC')
+        rows = cursor.fetchall()
+        for row in rows:
+            producer.send(topic, dict(row))
+            producer.flush()
+            logger.info(f"Sent message: {dict(row)}")
+            last_timestamp = row['timestamp']  # Track the latest timestamp
+    except Exception as e:
+        logger.error(f"Error sending initial batch of messages: {e}")
+
+
+
     while True:
         try:
             if last_timestamp is None:
