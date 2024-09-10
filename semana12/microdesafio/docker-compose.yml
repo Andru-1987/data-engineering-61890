@@ -26,6 +26,7 @@
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
         KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
         KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+        KAFKA_TOPIC: $TOPIC
       ports:
         - "9092:9092"
 
@@ -64,7 +65,7 @@
       volumes:
         - ./producer:/app
         - ./database:/database
-        - ./producer.log:/app/producer.log
+        - ./logger.log:/logger.log
       env_file:
         - .env
       restart: always
@@ -81,6 +82,7 @@
       volumes:
         - ./consumer:/app
         - ./database:/database
+        - ./logger.log:/logger.log
       restart: always
       env_file:
         - .env

@@ -36,7 +36,7 @@ with DAG(
         python_callable=cargar_data,
         op_args=args,
     )
-
+    # 4. Mailing
     send_email = PythonOperator(
         task_id="mail_sender",
         python_callable=send_email,

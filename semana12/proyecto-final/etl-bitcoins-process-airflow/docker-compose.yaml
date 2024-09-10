@@ -80,25 +80,6 @@ services:
       start_period: 5s
     restart: always
 
-  # storage_pg:
-  #   image: postgres:13
-  #   container_name: storage_pg
-  #   hostname: database
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
-  #     POSTGRES_DB: etl_bitcoins
-  #   volumes:
-  #     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-  #   ports:
-  #     - 5433:5432
-  #   healthcheck:
-  #     test: ["CMD", "pg_isready", "-U", "postgres"]
-  #     interval: 10s
-  #     retries: 5
-  #     start_period: 5s
-  #   restart: always
-
   redis:
     # Redis is limited to 7.2-bookworm due to licencing change
     # https://redis.io/blog/redis-adopts-dual-source-available-licensing/

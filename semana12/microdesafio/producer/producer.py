@@ -11,7 +11,7 @@ logging.basicConfig(
     format='PRODUCER: %(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(),  # Muestra los logs en la consola
-        logging.FileHandler('logger.log')  # Guarda los logs en un archivo
+        logging.FileHandler('/logger.log')  # Guarda los logs en un archivo
     ]
 )
 
